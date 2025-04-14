@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    background-color: wheat;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0.5rem 0;
+    text-align: center;
+    background-color: wheat;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0.5rem ;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Adicionando estilos para exibir os produtos em uma grade automática */
+.lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card-produto {
+    background-color: white;
+    color: #000;
+    border-radius: 8px;
+    font-weight: normal;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card-produto:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s ease-in-out; /* Tornando o efeito de hover mais suave */
+}
+
+.produto-imagem {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.produto-titulo {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.produto-preco {
+    font-size: 1rem;
+    color: #ffcc00;
+    margin: 0.5rem 0;
+}
+
+.produto-detalhes-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #ff9900;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.produto-detalhes-link:hover {
+    background-color: #cc7a00;
+}
+
+/* Estilos para centralizar os detalhes do produto e melhorar a interface */
+.produtoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.produtoDetalhes {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.produtoImagem {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.produtoInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.produtoTitulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.produtoDescricao {
+    font-size: 1rem;
+    color: #666;
+}
+
+.produtoPreco {
+    font-size: 1.5rem;
+    color: #ff9900;
+    font-weight: bold;
+}
+
+.produtoCategoria, .produtoAvaliacao {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Estilos para o efeito de carregamento */
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
