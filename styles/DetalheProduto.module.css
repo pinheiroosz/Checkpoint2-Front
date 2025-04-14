@@ -1,4 +1,4 @@
-/* Estilos para a animação de carregamento */
+/* animação de carregamento */
 .loadingContainer {
     display: flex;
     justify-content: center;
@@ -25,7 +25,8 @@
     }
 }
 
-/* Estilos para centralizar e melhorar a aparência dos detalhes do produto */
+
+/* centralizando os detalhes do produto p deixar a interface mais agradável também */
 .produtoContainer {
     display: flex;
     flex-direction: column;

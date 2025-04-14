@@ -1,47 +1,47 @@
 "use client";
 
-// Importações necessárias para a página de detalhes do produto
-import React, { useEffect, useState } from "react"; // React e hooks para gerenciar estado e efeitos colaterais
-import { useRouter } from "next/router"; // Hook do Next.js para acessar os parâmetros da rota
-import axios from "axios"; // Biblioteca para realizar requisições HTTP
+// importações necessárias para a página de detalhes do produto
+import React, { useEffect, useState } from "react"; // react e hooks para gerenciar estado e efeitos colaterais
+import { useRouter } from "next/router"; // hook do next.js para acessar os parâmetros da rota
+import axios from "axios"; // biblioteca para realizar requisições http
 
-// Interface para definir a estrutura dos detalhes de um produto
+// interface para definir a estrutura dos detalhes de um produto
 interface DetalheProduto {
-  id: number; // ID do produto
-  title: string; // Nome do produto
-  description: string; // Descrição do produto
-  price: number; // Preço do produto
-  category: string; // Categoria do produto
-  rating: number; // Avaliação do produto
-  thumbnail: string; // URL da imagem do produto
+  id: number; // id do produto
+  title: string; // nome do produto
+  description: string; // descrição do produto
+  price: number; // preço do produto
+  category: string; // categoria do produto
+  rating: number; // avaliação do produto
+  thumbnail: string; // url da imagem do produto
 }
 
-// Componente funcional para a página de detalhes do produto
+// componente funcional para a página de detalhes do produto
 const ProdutoDetalhes: React.FC = () => {
-  // Estado para armazenar os detalhes do produto
+  // estado para armazenar os detalhes do produto
   const [produto, setProduto] = useState<DetalheProduto | null>(null);
-  // Estado para gerenciar o carregamento dos dados
+  // estado para gerenciar o carregamento dos dados
   const [loading, setLoading] = useState(true);
-  const router = useRouter(); // Hook do Next.js para acessar os parâmetros da rota
-  const { id } = router.query; // Obtém o ID do produto a partir da URL
+  const router = useRouter(); // hook do next.js para acessar os parâmetros da rota
+  const { id } = router.query; // obtém o id do produto a partir da url
 
-  // Hook useEffect para buscar os detalhes do produto pela API quando o ID é fornecido
+  // hook useEffect para buscar os detalhes do produto pela api quando o id é fornecido
   useEffect(() => {
     if (id) {
       axios
-        .get(`https://dummyjson.com/products/${id}`) // Requisição GET para a API com o ID do produto
+        .get(`https://dummyjson.com/products/${id}`) // requisição get para a api com o id do produto
         .then((response) => {
-          setProduto(response.data); // Atualiza o estado com os detalhes do produto
-          setLoading(false); // Atualiza o estado de carregamento
+          setProduto(response.data); // atualiza o estado com os detalhes do produto
+          setLoading(false); // atualiza o estado de carregamento
         })
         .catch((error) => {
-          console.error("Erro ao buscar detalhes do produto:", error); // Log de erro em caso de falha
-          setLoading(false); // Atualiza o estado de carregamento
+          console.error("erro ao buscar detalhes do produto:", error); // log de erro em caso de falha
+          setLoading(false); // atualiza o estado de carregamento
         });
     }
   }, [id]);
 
-  // Renderiza um indicador de carregamento enquanto os dados estão sendo buscados
+  // renderiza um indicador de carregamento enquanto os dados estão sendo buscados
   if (loading) {
     return (
       <div className="loadingContainer">
@@ -50,26 +50,26 @@ const ProdutoDetalhes: React.FC = () => {
     );
   }
 
-  // Renderiza uma mensagem caso o produto não seja encontrado
+  // renderiza uma mensagem caso o produto não seja encontrado
   if (!produto) {
-    return <p>Produto não encontrado.</p>;
+    return <p>produto não encontrado.</p>;
   }
 
-  // Renderiza os detalhes do produto quando os dados são carregados
+  // renderiza os detalhes do produto quando os dados são carregados
   return (
     <div className="produtoContainer">
       <div className="produtoDetalhes">
         <img src={produto.thumbnail} alt={produto.title} className="produtoImagem" />
         <div className="produtoInfo">
           <h1 className="produtoTitulo">{produto.title}</h1>
-          <p className="produtoDescricao"><strong>Descrição:</strong> {produto.description}</p>
-          <p className="produtoPreco"><strong>Preço:</strong> R$ {produto.price.toFixed(2)}</p>
-          <p className="produtoCategoria"><strong>Categoria:</strong> {produto.category}</p>
-          <p className="produtoAvaliacao"><strong>Avaliação:</strong> {produto.rating} / 5</p>
+          <p className="produtoDescricao"><strong>descrição:</strong> {produto.description}</p>
+          <p className="produtoPreco"><strong>preço:</strong> r$ {produto.price.toFixed(2)}</p>
+          <p className="produtoCategoria"><strong>categoria:</strong> {produto.category}</p>
+          <p className="produtoAvaliacao"><strong>avaliação:</strong> {produto.rating} / 5</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProdutoDetalhes; // Exporta o componente para ser usado como a página de detalhes
+export default ProdutoDetalhes; // exporta o componente para ser usado como a página de detalhes

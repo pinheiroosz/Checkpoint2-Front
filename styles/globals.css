@@ -24,7 +24,7 @@ h2 {
     background-color: #fff;
 }
 
-/* Adicionando estilos para exibir os produtos em uma grade automática */
+/* adicionando estilos para exibir os produtos em uma grade automática */
 .lista-produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -45,7 +45,7 @@ h2 {
 
 .card-produto:hover {
     transform: scale(1.05);
-    transition: transform 0.4s ease-in-out; /* Tornando o efeito de hover mais suave */
+    transition: transform 0.4s ease-in-out; /* hoverzinho maneiro */
 }
 
 .produto-imagem {
@@ -81,7 +81,7 @@ h2 {
     background-color: #cc7a00;
 }
 
-/* Estilos para centralizar os detalhes do produto e melhorar a interface */
+/* centralizando os detalhes do produto p deixar a interface mais agradável */
 .produtoContainer {
     display: flex;
     flex-direction: column;
@@ -137,7 +137,7 @@ h2 {
     color: #333;
 }
 
-/* Estilos para o efeito de carregamento */
+/* efeito de carregamento */
 .loadingContainer {
     display: flex;
     justify-content: center;

@@ -11,7 +11,7 @@ interface CardProdutoProps {
   image: string; // URL da imagem do produto
 }
 
-// Componente funcional para exibir informações básicas de um produto
+// Componente funcional para exibir informações básicas do produto
 const CardProduto: React.FC<CardProdutoProps> = ({ id, title, price, image }) => {
   const router = useRouter();
   const [imageLoaded, setImageLoaded] = useState(false);
